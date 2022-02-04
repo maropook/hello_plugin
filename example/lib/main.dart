@@ -66,6 +66,10 @@ class _MyAppState extends State<MyApp> {
             children: [
               Text('platformVersion: $_platformVersion\n'),
               Text('appVersion: $_appVersion\n'),
+              ElevatedButton(
+                onPressed: initAppState,
+                child: Text('appVersion: $_appVersion\n'),
+              )
             ],
           ),
         ),

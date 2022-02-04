@@ -17,11 +17,26 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
+  String _appVersion = 'unknown';
 
   @override
   void initState() {
     super.initState();
     initPlatformState();
+    initAppState();
+  }
+
+  Future<void> initAppState() async {
+    String appVersion;
+    try {
+      appVersion = await Hello.appVersion ?? 'Unknown app version';
+    } on PlatformException {
+      appVersion = 'Failed to get App version.';
+    }
+    if (!mounted) return;
+    setState(() {
+      _appVersion = appVersion;
+    });
   }
 
   Future<void> initPlatformState() async {
@@ -47,7 +62,12 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(
+            children: [
+              Text('platformVersion: $_platformVersion\n'),
+              Text('appVersion: $_appVersion\n'),
+            ],
+          ),
         ),
       ),
     );

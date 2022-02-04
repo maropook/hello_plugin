@@ -15,6 +15,8 @@ public class SwiftHelloPlugin: NSObject, FlutterPlugin {
              result("getDeviceInfo:iOS " + UIDevice.current.systemVersion)
            case "getPlatformVersion":
              result("getPlatformVersion:iOS " + UIDevice.current.systemVersion)
+          case "getAppVersion":
+              result(Bundle.main.object(forInfoDictionaryKey:"CFBundleShortVersionString") as? String)
            default:
              result("iOS d " + UIDevice.current.systemVersion)
          }

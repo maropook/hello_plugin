@@ -9,6 +9,14 @@ public class SwiftHelloPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    result("iOS " + UIDevice.current.systemVersion)
+    switch.call.method{
+      case "getDeviceInfo":
+        result("getDeviceInfo:iOS " + UIDevice.current.systemVersion)
+      case "getPlatformVersion":
+        result("getPlatformVersion:iOS " + UIDevice.current.systemVersion)
+      default:
+        result("iOS " + UIDevice.current.systemVersion)
+    }
+
   }
 }

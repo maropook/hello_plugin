@@ -15,7 +15,7 @@ public class SwiftHelloPlugin: NSObject, FlutterPlugin {
       case "getPlatformVersion":
         result("getPlatformVersion:iOS " + UIDevice.current.systemVersion)
       default:
-        result("iOS " + UIDevice.current.systemVersion)
+        result("iOS d " + UIDevice.current.systemVersion)
     }
 
   }

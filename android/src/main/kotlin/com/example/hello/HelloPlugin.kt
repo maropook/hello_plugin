@@ -63,7 +63,7 @@ class HelloPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       } catch (e: PackageManager.NameNotFoundException) {
         result.success("a${version}")
       }
-result.success("a${version}")
+      result.success("a${version}")
 
     }else if(call.method == "getAppVersion3") {
       var appInfo2 =  AppInfo2()
